@@ -89,7 +89,7 @@ def find_option_type(key, parser):
 
 if args.config is not None:
     with open(args.config, "r") as f:
-        yml_config = yaml.load(f, Loader=yaml.FullLoader)
+        yml_config = yaml.load(f, Loader=yaml.SafeLoader)
     for k, v in yml_config.items():
         if k in args.__dict__:
             typ = find_option_type(k, parser)
